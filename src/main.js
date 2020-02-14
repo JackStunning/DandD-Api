@@ -2,54 +2,81 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import $ from 'jquery';
-import { GetEndPoint } from './d&d-db';
+import { fetchURL } from './d&d-db';
 
-const urlClasses = "http://www.dnd5eapi.co/api/classes";
-const urlEquipment = "http://www.dnd5eapi.co/api/equipment";
-const urlSpells = "http://www.dnd5eapi.co/api/spells";
+console.log('typeof fetchURL', typeof fetchURL)
+
+//const url = new GetUrl("http://www.dnd5eapi.co/api");
+
+const resources = {
+  classes: "http://www.dnd5eapi.co/api/classes",
+  equipment: "http://www.dnd5eapi.co/api/equipment",
+  spells: "http://www.dnd5eapi.co/api/spells"
+};
 
 
-// let newUrl = "http://www.dnd5eapi.co/"
+const urls = {
+  "ability-scores": "/api/ability-scores",
+  "classes": "/api/classes",
+  "conditions": "/api/conditions",
+  "damage-types": "/api/damage-types",
+  "equipment-categories": "/api/equipment-categories",
+  "equipment": "/api/equipment",
+  "features": "/api/features",
+  "languages": "/api/languages",
+  "magic-schools": "/api/magic-schools",
+  "monsters": "/api/monsters",
+  "proficiencies": "/api/proficiencies",
+  "races": "/api/races",
+  "skills": "/api/skills",
+  "spellcasting": "/api/spellcasting",
+  "spells": "/api/spells",
+  "startingequipment": "/api/startingequipment",
+  "subclasses": "/api/subclasses",
+  "subraces": "/api/subraces",
+  "traits": "/api/traits",
+  "weapon-properties": "/api/weapon-properties"
+};
 
-function getDataClasses() {
-  fetch(urlClasses)
-    .then((res) => res.json())
-    .then((data) => {
-      data.results.forEach(classs => $("#data-div").append(`${classs.name} <br>`))
-    });
-}
+const urlKeys = Object.keys(urls);
 
-function getDataEquipment() {
-  fetch(urlEquipment)
-    .then((res) => res.json())
-    .then((data) => {
-      data.results.forEach(item => $("#data-div").append(`${item.name} <br>`))
-    });
-}
-
-function getDataSpells() {
-  fetch(urlSpells)
-    .then((res) => res.json())
-    .then((data) => {
-      data.results.forEach(spell => $("#data-div").append(`${spell.name} <br>`))
-    });
-}
+console.log(urlKeys)
 
 $(document).ready(function(){
 
-  $("#button").click(function(e){
+  $("#button").click(function (e) {
     $("#data-div").empty();
     let resource = $("#resources").val();
-    let endPoint = new GetEndPoint(resource);
-    console.log(endPoint)
     console.log(resource)
     e.preventDefault()
-    if (resource == "classes") {
-      getDataClasses();
-    } else if (resource == "equipment") {
-      getDataEquipment();
-    } else if (resource == "spells") {
-      getDataSpells();
-    }
+    
+    const userInput = $("#resources").val();
+    const myURL = resources[userInput];
+    const results = fetchURL(myURL);
+    console.log('results', results);
+    const myInterval = setInterval(() => {
+      
+      console.log('timeoute', results);
+      if (results) {
+        console.log('results exist');
+        results.then((results) => {
+          results.forEach(classs => $("#data-div").append(`${classs.name} <br>`));
+          clearInterval(myInterval);
+        })
+      }
+
+    }, 200);
+
+    // if (resource == "classes") {
+    //   getDataClasses();
+    // } else if (resource == "equipment") {
+    //   getDataEquipment();
+    // } else if (resource == "spells") {
+    //   getDataSpells();
+    // }
   })
 });
+
+
+
+
