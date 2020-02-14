@@ -1,36 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
     <title>D&D</title>
   </head>
   <body>
-    <h1>D&D Api project</h1>
-    <label for="resource-label">Resources</label><br>
-    <select name="resources" id="resources">
-      <option value="ability-scores">Ability Scores</option>
-      <option value="classes">Classes</option>
-      <option value="conditions">Conditions</option>
-      <option value="damage-types">Damage Types</option>
-      <option value="equipment-categories">Equipment Categories</option>
-      <option value="equipment">Equipment</option>
-      <option value="features">Features</option>
-      <option value="languages">Languages</option>
-      <option value="magic-schools">Magic Schools</option>
-      <option value="monsters">Monsters</option>
-      <option value="proficiencies">Proficiencies</option>
-      <option value="races">Races</option>
-      <option value="skills">Skills</option>
-      <option value="spellcasting">Spellcasting</option>
-      <option value="spells">Spells</option>
-      <option value="startingequipment">Starting Equipment</option>
-      <option value="subclasses">Subclasses</option>
-      <option value="subraces">Subraces</option>
-      <option value="traits">Traits</option>
-      <option value="weapon-properties">Weapon Properties</option>
-    </select><br>
-    
-    <button id="button">click</button>
-    <div id="data-div"></div>
+    <div class="container">
+      <section class="hero">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Ultimate D&D Resource 
+            </h1>
+            <h2 class="subtitle">
+              nerd info at the click of a button
+            </h2>
+          </div>
+        </div>
+      </section>
+      <label for="resource-label">Resources</label><br>
+      <div class="select">
+        <select name="resources" id="resources">
+          <option value="ability-scores">Ability Scores</option>
+          <option value="classes">Classes</option>
+          <option value="conditions">Conditions</option>
+          <option value="damage-types">Damage Types</option>
+          <option value="equipment-categories">Equipment Categories</option>
+          <option value="equipment">Equipment</option>
+          <option value="features">Features</option>
+          <option value="languages">Languages</option>
+          <option value="magic-schools">Magic Schools</option>
+          <option value="monsters">Monsters</option>
+          <option value="proficiencies">Proficiencies</option>
+          <option value="races">Races</option>
+          <option value="skills">Skills</option>
+          <option value="spells">Spells</option>
+          <option value="subclasses">Subclasses</option>
+          <option value="subraces">Subraces</option>
+          <option value="traits">Traits</option>
+          <option value="weapon-properties">Weapon Properties</option>
+        </select><br>
+        
+        <button id="button">click</button>
+        <div id="data-div"></div>
+      </div>
+
+    </div>
+
   </body>
 </html>
