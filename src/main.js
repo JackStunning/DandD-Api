@@ -27,14 +27,6 @@ $(document).ready(function(){
       }
 
     }, 200);
-
-    // if (resource == "classes") {
-    //   getDataClasses();
-    // } else if (resource == "equipment") {
-    //   getDataEquipment();
-    // } else if (resource == "spells") {
-    //   getDataSpells();
-    // }
   });
 });
 
