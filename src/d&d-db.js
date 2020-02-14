@@ -1,7 +1,7 @@
 export class GetUrl {
   constructor(){
 		this.url = "http://www.dnd5eapi.co";
-		this.resource = {
+		this.resources = {
 			"ability-scores": "/api/ability-scores",
 			"classes": "/api/classes",
 			"conditions": "/api/conditions",
@@ -25,8 +25,9 @@ export class GetUrl {
 		}
 	}
 	
-	newUrl() {
-		return this.url + this.resource["ability-scores"]
+	newUrl(userInput) {
+		console.log(this.url + this.resources[userInput])
+		return this.url + this.resources[userInput];
 	}
 
 }
