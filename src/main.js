@@ -4,27 +4,24 @@ import './styles.css';
 import $ from 'jquery';
 import { GetEndPoint } from './d&d-db';
 
-const url = "http://www.dnd5eapi.co/api/";
+let url = "http://www.dnd5eapi.co/api/";
 
-function getData() {
-
+function getData(endPoint) {
   fetch(url)
     .then(function(response) {
       return response.json();
     })
     .then(function(data) {
-      let newData = data;
-      console.log("newData"+JSON.stringify(newData));
-      console.log(newData);
-      return newData;
+      const newData = data.classes
+      endPoint.setEndPoint(newData);
+      console.log("newData "+newData)
+      console.log(endPoint)
+      console.log(data)
+      return data
     });
 }
 
 $(document).ready(function(){
-  let data = getData();
-  let endPoint = new GetEndPoint();
-  console.log("endPoint"+JSON.stringify(endPoint));
-  console.log("jqueryData"+data);
-  $("#data-div").text(data);
-  $("#data-div").text("hello");
+  let newEndPoint = new GetEndPoint();
+  getData(newEndPoint);
 });

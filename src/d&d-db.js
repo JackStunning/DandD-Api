@@ -1,5 +1,9 @@
 export class GetEndPoint {
-  constructor(endPoint){
+  constructor(){
+    this.endPoint = "";
+  }
+
+  setEndPoint(endPoint) {
     this.endPoint = endPoint;
   }
 }
