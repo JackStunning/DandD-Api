@@ -7,8 +7,10 @@ import { fetchURL, GetUrl } from './d&d-db';
 $(document).ready(function(){
 
   $("#button").click(function (e) {
-    $("#data-div").empty();
+    
     e.preventDefault();
+    $("#data-div").empty();
+    $("#data-div").show();
 
     let newURL = new GetUrl();
     console.log("newURL",newURL);
@@ -21,6 +23,7 @@ $(document).ready(function(){
       
       if (results) {
         results.then((results) => {
+          $("#data-div").append(`<p>Your Resources</p>`);
           results.forEach(classs => $("#data-div").append(`${classs.name} <br>`));
           clearInterval(myInterval);
         });

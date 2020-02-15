@@ -1,0 +1,60 @@
+:root {
+  --black: #161615;
+  --red: #be3131;
+  --gold: #d5a95a;
+  --silver: #d9d1cf;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  border-left: 50px solid var(--black);
+  border-right: 50px solid var(--black);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  border-left: 10px solid var(--red);
+  border-right: 10px solid var(--red);
+  background-image: url("https://i.imgur.com/9IhTQTR.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1, h2 {
+  color: var(--silver);
+}
+
+p {
+  color: var(--silver);
+  text-decoration: underline;
+  text-decoration-color: var(--gold);
+  font-size: 24px;
+}
+
+.container{
+  border: 5px solid var(--red);
+  background-color: var(--black);
+  color: var(--silver);
+  height: 100%;
+}
+
+select{
+  color: var(--silver);
+  background-color: var(--black);
+  border-color: var(--gold);
+}
+
+button {
+  color: var(--silver);
+  background-color: var(--black);
+  border-color: var(--gold);
+  margin-top: 1%;
+}
+
+#data-div{
+  display: none;
+  text-align: center;
+}
